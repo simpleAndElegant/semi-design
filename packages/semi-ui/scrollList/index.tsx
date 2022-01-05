@@ -46,7 +46,7 @@ class ScrollList extends BaseComponent<ScrollListProps, {}> {
         });
 
         return (
-            <div className={clsWrapper} style={style}>
+            <div className={clsWrapper} style={style} role="list">
                 {header ? (
                     <div className={clsHeader}>
                         <div className={`${clsHeader}-title`}>{header}</div>

@@ -434,7 +434,7 @@ export default class ScrollItem<T extends Item> extends BaseComponent<ScrollItem
 
             return (
                 // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-                <li key={prefixKey + index} {...events} className={cls}>
+                <li key={prefixKey + index} {...events} className={cls} role="menuitem">
                     {text}
                 </li>
             );
@@ -450,7 +450,7 @@ export default class ScrollItem<T extends Item> extends BaseComponent<ScrollItem
 
         return (
             <div style={style} className={wrapperCls} ref={this._cacheWrapperNode}>
-                <ul ref={this._cacheListNode}>{inner}</ul>
+                <ul role="menu" ref={this._cacheListNode}>{inner}</ul>
             </div>
         );
     };
@@ -488,12 +488,12 @@ export default class ScrollItem<T extends Item> extends BaseComponent<ScrollItem
         const postShadeCls = classnames(`${cssClasses.PREFIX}-shade`, `${cssClasses.PREFIX}-shade-post`);
 
         return (
-            <div className={wrapperCls} style={style}>
+            <div className={wrapperCls} style={style} role="listitem">
                 <div className={preShadeCls} />
                 <div className={selectorCls} ref={this._cacheSelectorNode} />
                 <div className={postShadeCls} />
                 <div className={listWrapperCls} ref={this._cacheWrapperNode} onScroll={this.scrollToSelectItem}>
-                    <ul ref={this._cacheListNode} onClick={this.clickToSelectItem}>
+                    <ul role="menu" ref={this._cacheListNode} onClick={this.clickToSelectItem}>
                         {prependList}
                         {inner}
                         {appendList}
