@@ -36,7 +36,7 @@ import DatePickerSlot from './DatePickerSlot';
 import DatePickerTimeZone from './DatePickerTimeZone';
 import BetterRangePicker from './BetterRangePicker';
 import SyncSwitchMonth from './SyncSwitchMonth';
-import { YearButton } from './v2';
+import { YearButton, FixInputRangeFocus } from './v2';
 
 export default {
   title: 'DatePicker',
@@ -67,7 +67,8 @@ export {
   DatePickerTimeZone,
   BetterRangePicker,
   SyncSwitchMonth,
-  YearButton
+  YearButton,
+  FixInputRangeFocus
 }
 
 const demoDiv = {
