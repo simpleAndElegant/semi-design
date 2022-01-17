@@ -76,6 +76,7 @@ export { default as ScrollBar } from './ScrollBar';
 export { default as TableSpan } from './TableSpan';
 export { default as FixRenderReturnProps } from './FixRenderReturnProps';
 export { default as WarnColumnWithoutDataIndex } from './WarnColumnWithoutDataIndex';
+export * from './v2';
 
 // empty table
 

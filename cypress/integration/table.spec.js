@@ -11,4 +11,11 @@ describe('table', () => {
         cy.get('.semi-table-row-head .semi-checkbox-inner-display').click();
         cy.get('.semi-checkbox-checked').should('have.length', 4);
     });
+
+    it('defaultFilteredValue', () => {
+        cy.visit('http://localhost:6009/iframe.html?id=table--default-filtered-value&args=&viewMode=story');
+        cy.contains('显示第 1 条-第 10 条，共 23 条');
+        cy.get('.semi-button').contains('toggle change dataSource (46/25)').click();
+        cy.contains('显示第 1 条-第 10 条，共 12 条');
+    });
 });
