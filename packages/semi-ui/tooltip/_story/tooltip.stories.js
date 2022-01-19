@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Tooltip from '../index';
 import './story.scss';
-import { Tag, Icon, IconButton, Switch, Checkbox, Radio, Button, Select, InputNumber } from '@douyinfe/semi-ui';
+import { Tag, Icon, IconButton, Switch, Checkbox, Radio, Button, Select, InputNumber, Space } from '@douyinfe/semi-ui';
 
 import InTableDemo from './InTable';
 import EdgeDemo from './Edge';
@@ -736,3 +736,37 @@ export const AutoAdjustWithSpacing = () => {
 AutoAdjustWithSpacing.story = {
   name: 'AutoAdjustWithSpacing',
 };
+
+export const leftTopOverDemo = () => {
+    const content = (
+        <div style={{ height: 200, width: 200 }}>
+            Semi Design
+        </div>
+    );
+
+    return (
+        <div style={{ height: '200vh' }}>
+            <div style={{ position: 'absolute', bottom: 0 }}>
+                <Space style={{ marginBottom: 10 }}>
+                    <Tooltip content={content} trigger="click" position='leftTopOver' spacing={1}  showArrow={false}>
+                        <Button data-cy='leftTopOver'>leftTopOver</Button>
+                    </Tooltip>
+                    <Tooltip content={content} trigger="click" position='bottom' showArrow={false}>
+                        <Button data-cy='bottom'>bottom（对照组）</Button>
+                    </Tooltip>
+                    <Tooltip content={content} trigger="click" position='leftBottomOver' showArrow={false}>
+                        <Button data-cy='leftBottomOver'>leftBottomOver</Button>
+                    </Tooltip>
+                    <Tooltip content={content} trigger="click" position='top' showArrow={false}>
+                        <Button data-cy='top'>top（对照组）</Button>
+                    </Tooltip>
+                    <Tooltip content={content} trigger="custom" visible={true}  position='leftTopOver' spacing={1}  showArrow={false}>
+                        <Button data-cy='leftTopOver-visible'>leftTopOver</Button>
+                    </Tooltip>
+                </Space>
+            </div>
+        </div>
+    )
+};
+leftTopOverDemo.storyName = `leftTopOver autoAdjustOverflow`;
+leftTopOverDemo.parameters = { chromatic: { disableSnapshot: false }};

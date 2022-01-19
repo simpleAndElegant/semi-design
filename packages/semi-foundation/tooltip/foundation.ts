@@ -434,6 +434,10 @@ export default class Tooltip<P = Record<string, any>, S = Record<string, any>> e
                 top = triggerRect.top;
                 translateX = -1;
                 break;
+            case 'leftBottomOver':
+                left = triggerRect.left;
+                top = triggerRect.bottom;
+                translateY = -1;
             default:
                 break;
         }
@@ -604,6 +608,8 @@ export default class Tooltip<P = Record<string, any>, S = Record<string, any>> e
             const shouldReverseLeft = clientLeft < wrapperRect.width + spacing && restClientRight > wrapperRect.width + spacing;
             const sholdReverseBottom = restClientBottom < wrapperRect.height + spacing && clientTop > wrapperRect.height + spacing;
             const shouldReverseRight = restClientRight < wrapperRect.width + spacing && clientLeft > wrapperRect.width + spacing;
+            const shouldReverseTopOver = restClientTop < wrapperRect.height + spacing && clientBottom > wrapperRect.height + spacing;
+            const shouldReverseBottomOver = clientBottom < wrapperRect.height + spacing && restClientTop > wrapperRect.height + spacing;
 
             const shouldReverseTopSide = restClientTop < wrapperRect.height && clientBottom > wrapperRect.height;
             const shouldReverseBottomSide = clientBottom < wrapperRect.height && restClientTop > wrapperRect.height;
@@ -692,6 +698,16 @@ export default class Tooltip<P = Record<string, any>, S = Record<string, any>> e
                         position = this._reversePos(position);
                     }
                     if (shouldReverseBottomSide && heightIsBigger) {
+                        position = this._reversePos(position, true);
+                    }
+                    break;
+                case 'leftTopOver':
+                    if (shouldReverseTopOver) {
+                        position = this._reversePos(position, true);
+                    }
+                    break;
+                case 'leftBottomOver':
+                    if (shouldReverseBottomOver) {
                         position = this._reversePos(position, true);
                     }
                     break;
